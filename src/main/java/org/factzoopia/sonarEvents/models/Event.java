@@ -1,5 +1,7 @@
 package org.factzoopia.sonarEvents.models;
 
+import java.sql.Timestamp;
+
 import org.factzoopia.sonarEvents.models.enums.State;
 
 import jakarta.persistence.Column;
@@ -67,6 +69,14 @@ public class Event {
         this.title = title;
     }
 
+    public Timestamp getDate() {
+        return date;
+    }
+
+    public void setDate(Timestamp date) {
+        this.date = date;
+    }
+
     public State getState() {
         return state;
     }
@@ -99,5 +109,5 @@ public class Event {
         this.image = image;
     }
 
-    
+
 }
