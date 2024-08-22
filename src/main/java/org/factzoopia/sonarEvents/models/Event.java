@@ -2,16 +2,13 @@ package org.factzoopia.sonarEvents.models;
 
 import java.sql.Timestamp;
 
-import org.factzoopia.sonarEvents.models.enums.State;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+
 
 @Entity
 @Table(name = "events")
@@ -27,12 +24,17 @@ public class Event {
     @Column(name = "date")
     private Timestamp date;  
 
-    @Column(name = "state")
-    @Enumerated(EnumType.STRING)
-    private State state;
+    @Column(name = "available")
+    private Boolean available;
+
+    @Column(name = "past")
+    private Boolean past;
 
     @Column(name = "max_participants")
     private Integer maxParticipants;
+
+    @Column(name = "registered_participants")
+    private Integer registeredParticipants;
 
     @Column(name = "description")
     private String description;
@@ -44,11 +46,15 @@ public class Event {
         
     }
 
-    public Event(Long id, String title, State state, Integer maxParticipants, String description, String image) {
+    public Event(Long id, String title, Timestamp date, Boolean available, Boolean past, Integer maxParticipants,
+            Integer registeredParticipants, String description, String image) {
         this.id = id;
         this.title = title;
-        this.state = state;
+        this.date = date;
+        this.available = available;
+        this.past = past;
         this.maxParticipants = maxParticipants;
+        this.registeredParticipants = registeredParticipants;
         this.description = description;
         this.image = image;
     }
@@ -77,12 +83,20 @@ public class Event {
         this.date = date;
     }
 
-    public State getState() {
-        return state;
+    public Boolean getAvailable() {
+        return available;
     }
 
-    public void setState(State state) {
-        this.state = state;
+    public void setAvailable(Boolean available) {
+        this.available = available;
+    }
+
+    public Boolean getPast() {
+        return past;
+    }
+
+    public void setPast(Boolean past) {
+        this.past = past;
     }
 
     public Integer getMaxParticipants() {
@@ -91,6 +105,14 @@ public class Event {
 
     public void setMaxParticipants(Integer maxParticipants) {
         this.maxParticipants = maxParticipants;
+    }
+
+    public Integer getRegisteredParticipants() {
+        return registeredParticipants;
+    }
+
+    public void setRegisteredParticipants(Integer registeredParticipants) {
+        this.registeredParticipants = registeredParticipants;
     }
 
     public String getDescription() {
@@ -108,6 +130,5 @@ public class Event {
     public void setImage(String image) {
         this.image = image;
     }
-
 
 }
