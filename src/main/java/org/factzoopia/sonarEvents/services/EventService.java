@@ -41,8 +41,6 @@ public class EventService {
         repository.deleteById(id);
     }
 
-    // public boolean isAvailable() {
-    //     return this.isAvailable() && !this.past && this.registeredParticipants < this.maxParticipants;
-    // }
+    
     
 }

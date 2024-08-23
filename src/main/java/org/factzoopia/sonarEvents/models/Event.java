@@ -59,6 +59,27 @@ public class Event {
         this.image = image;
     }
 
+    public boolean hasEventPassed() {
+        Timestamp currentTimestamp = new Timestamp(System.currentTimeMillis());
+        return this.date.before(currentTimestamp);
+    }
+
+    public boolean isEventAvailable() {
+        return !this.past && this.available && this.registeredParticipants < this.maxParticipants;
+    }
+
+    public void registerParticipant() {
+        if (isEventAvailable()) {
+            this.registeredParticipants++;
+            if (this.registeredParticipants >= this.maxParticipants) {
+                this.available = false;
+            }
+        } else {
+            throw new IllegalStateException("The event is not available for more participants.");
+        }
+    }
+
+
     public Long getId() {
         return id;
     }

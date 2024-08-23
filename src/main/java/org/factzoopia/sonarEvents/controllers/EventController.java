@@ -39,9 +39,10 @@ public class EventController {
     public ResponseEntity<Event> getEventById(@PathVariable Long id) {
         Event event = eventService.getEventById(id);
         if (event != null) {
+          return ResponseEntity.ok(event);
+        } else {
             return ResponseEntity.notFound().build();
         }
-        return null;
     }
 
   @PostMapping("/create")
@@ -63,5 +64,11 @@ public class EventController {
 
         return ResponseEntity.noContent().build();
     }
+
+    // @PostMapping("/register")  HAY QUE PROBAR ESTE PUEDE SER EL MÉTODO PARA REGISTRAR USUARIOS
+    // public ResponseEntity<User> registerUser(@RequestBody User user) {
+    //     User registeredUser = userService.registerUser(user);
+    //     return ResponseEntity.status(HttpStatus.CREATED).body(registeredUser);
+    // }
 
 }
