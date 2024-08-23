@@ -1,9 +1,7 @@
 package org.factzoopia.sonarEvents.services;
 
-import java.sql.Timestamp;
 import java.util.List;
 
-import org.apache.el.stream.Optional;
 import org.factzoopia.sonarEvents.exceptions.EventsNotFoundException;
 import org.factzoopia.sonarEvents.models.Event;
 import org.factzoopia.sonarEvents.repositories.EventRepository;
@@ -19,6 +17,10 @@ public class EventService {
 
     public List<Event> getAllEvents() {
         return repository.findAll();
+    }
+
+    public Event getEventById(Long id) {
+        return repository.findById(id).orElseThrow(() -> new EventsNotFoundException("Animal not found"));
     }
 
     public Event createEvent(Event event) {
@@ -37,11 +39,6 @@ public class EventService {
             throw new EventsNotFoundException("Event not found");
         }
         repository.deleteById(id);
-    }
-
-    public static Event getEventById(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getEventById'");
     }
 
     // public boolean isAvailable() {
