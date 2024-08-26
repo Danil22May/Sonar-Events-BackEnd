@@ -65,10 +65,36 @@ public class EventController {
         return ResponseEntity.noContent().build();
     }
 
-    // @PostMapping("/register")  HAY QUE PROBAR ESTE PUEDE SER EL MÉTODO PARA REGISTRAR USUARIOS
-    // public ResponseEntity<User> registerUser(@RequestBody User user) {
-    //     User registeredUser = userService.registerUser(user);
-    //     return ResponseEntity.status(HttpStatus.CREATED).body(registeredUser);
-    // }
+    @GetMapping("/{id}/hasPassed")
+    public ResponseEntity<Boolean> hasEventPassed(@PathVariable Long id) {
+        boolean hasPassed = eventService.hasEventPassed(id);
+        return ResponseEntity.ok(hasPassed);
+    }
+
+    @GetMapping("/{id}/isAvailable")
+    public ResponseEntity<Boolean> isEventAvailable(@PathVariable Long id) {
+        boolean isAvailable = eventService.isEventAvailable(id);
+        return ResponseEntity.ok(isAvailable);
+    }
+
+    @PostMapping("/{id}/register")
+    public ResponseEntity<Event> registerParticipant(@PathVariable Long id) {
+        Event updatedEvent = eventService.registerParticipant(id);
+        return ResponseEntity.ok(updatedEvent);
+    }
+
+    // Endpoint para tener todos los eventos pasados y disponibles
+    
+    @GetMapping("/past")
+    public ResponseEntity<List<Event>> getPastEvents() {
+        List<Event> pastEvents = eventService.getPastEvents();
+        return ResponseEntity.ok(pastEvents);
+    }
+
+    @GetMapping("/available")
+    public ResponseEntity<List<Event>> getAvailableEvents() {
+        List<Event> availableEvents = eventService.getAvailableEvents();
+        return ResponseEntity.ok(availableEvents);
+    }
 
 }

@@ -41,6 +41,28 @@ public class EventService {
         repository.deleteById(id);
     }
 
-    
-    
+    public boolean hasEventPassed(Long eventId) {
+        Event event = getEventById(eventId);
+        return event.hasEventPassed();
+    }
+
+    public boolean isEventAvailable(Long eventId) {
+        Event event = getEventById(eventId);
+        return event.isEventAvailable();
+    }
+
+    public Event registerParticipant(Long eventId) {
+        Event event = getEventById(eventId);
+        event.registerParticipant();
+        return repository.save(event);
+    }
+
+    public List<Event> getPastEvents() {
+        return repository.findByPastTrue();
+    }
+
+    public List<Event> getAvailableEvents() {
+        return repository.findByAvailableTrue();
+    }
+
 }
