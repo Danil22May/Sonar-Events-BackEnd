@@ -1,6 +1,6 @@
 package org.factzoopia.sonarEvents.services;
 
-import org.factzoopia.sonarEvents.models.enums.Email;
+import org.factzoopia.sonarEvents.models.Email;
 import org.factzoopia.sonarEvents.repositories.EmailRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
