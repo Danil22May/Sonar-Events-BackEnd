@@ -1,4 +1,4 @@
-package org.factzoopia.sonarEvents.models.enums;
+package org.factzoopia.sonarEvents.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

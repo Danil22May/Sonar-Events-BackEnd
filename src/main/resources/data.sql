@@ -14,3 +14,4 @@ INSERT INTO events (title, date, available, past, max_participants, registered_p
 ('Festival de Música Electrónica', '2024-09-20 22:00:00', TRUE, FALSE, 500, 450, 'Un festival con los mejores DJs de la escena electrónica.', 'electronica_festival.jpg'),
 ('Concierto de Música Clásica', '2024-12-12 20:00:00', TRUE, FALSE, 200, 150, 'Una noche con las obras maestras de la música clásica.', 'musica_clasica.jpg');
 
+/* EMAIL TABLE */

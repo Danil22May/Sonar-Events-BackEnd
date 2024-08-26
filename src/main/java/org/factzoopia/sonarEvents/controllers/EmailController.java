@@ -1,7 +1,6 @@
 package org.factzoopia.sonarEvents.controllers;
 
-import org.factzoopia.sonarEvents.models.enums.Email;
-
+import org.factzoopia.sonarEvents.models.Email;
 import org.factzoopia.sonarEvents.services.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,7 +22,7 @@ public class EmailController{
    public EmailController(EmailService emailService) {
        this.emailService = emailService;
    }
-      @PostMapping("/create")
+      @PostMapping("/sendConfirmation")
     public ResponseEntity<Email> sendConfirmation(@RequestBody Email email) {
         Email sendConfirmation = emailService.sendConfirmationEmail(email);
         return ResponseEntity.status(HttpStatus.CREATED).body(sendConfirmation);
