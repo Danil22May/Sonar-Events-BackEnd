@@ -4,10 +4,8 @@ INSERT INTO admins (email, password, role)
 VALUES ('sonarevents@gmail.com', '$2a$12$CpLpmTSK3LqKcVcD/wJaj.URGybXR0fCtLnNynPvwlNQDJT8NGH.O', 'ROLE_ADMIN');
 
 /* USERS TABLE */
--- INSERT INTO users (email, password, role) 
--- VALUES ('pepa@gmail.com', 'pepa', 'ROLE_USER');
-
-
+INSERT INTO users (email, password, role) VALUES
+('user2@example.com', 'password456', 'ROLE_USER');
 /*EVENTS TABLE */
 
 INSERT INTO events (title, date, available, past, max_participants, registered_participants, description, image) VALUES
