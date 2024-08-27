@@ -5,6 +5,7 @@ VALUES ('sonarevents@gmail.com', '$2a$12$CpLpmTSK3LqKcVcD/wJaj.URGybXR0fCtLnNynP
 
 /* USERS TABLE */
 -- INSERT INTO users (email, password, role) 
+-- VALUES ('pepa@gmail.com', 'pepa', 'ROLE_USER');
 
 
 /*EVENTS TABLE */
