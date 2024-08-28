@@ -7,20 +7,26 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+
 @Entity
-@Table(name ="emails")
+@Table(name = "emails")
 public class Email {
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   @Column(name = "receiver")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "receiver")
     private String receiver;
+    private String recipient;
+    private String subject;
+    private String body;
 
-    @Column (name = "info")
-     private String info;
+    @Column(name = "info")
+    private String info;
 
-    public Email(String receiver, String info) {
-        this.receiver = receiver;
-        this.info = info;
+    public Email(String newReceiver, String newRecipient, String subject, String body) {
+        this.receiver = newReceiver;
+        this.recipient = newRecipient;
+        this.subject = subject;
+        this.body = body;
     }
 
     public String getReceiver() {
@@ -31,6 +37,30 @@ public class Email {
         this.receiver = receiver;
     }
 
+    public String getRecipient() {
+        return recipient;
+    }
+
+    public void setRecipient(String recipient) {
+        this.recipient = recipient;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
+    }
+
     public String getInfo() {
         return info;
     }
@@ -38,6 +68,4 @@ public class Email {
     public void setInfo(String info) {
         this.info = info;
     }
-
-    
 }
